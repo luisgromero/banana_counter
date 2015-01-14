@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Bananas</title>
+    descr
+</head>
+<body>
+
+<h1 id="counter">Bananas: 0</h1>
+<button id="add">Add banana</button>
+<button id="remove">Remove banana</button>
+
+<p id="bananas"></p>
+
+<script>
+    /*
+    * This script adds and removes bananas using html buttons and
+    * simple javascript.
+    *
+    */
+    var bananas = 0; 
+    var bananasArr = new Array();
+    var counter = document.getElementById("counter");
+    var bananasHTML= document.getElementById("bananas");
+    
+    /*
+    * The buttons get loaded and assigned actions onclick
+    */
+    window.onload = function(){
+            var btnAdd = document.getElementById("add");
+            var btnRemove = document.getElementById("remove");
+            btnAdd.onclick =  addBananaToButton;
+            btnRemove.onclick = removeBananaFromButton;
+        } 
+    
+    function addBananaToButton() {
+        bananas++;
+        counter.innerHTML = "Bananas: " + bananas;
+        addBananaToHTMLBody();
+    }
+    
+    function addBananaToHTMLBody(){
+        bananasArr.push("[BANANA]");
+        bananasHTML.innerHTML = bananasArr;
+    }
+    
+    function removeBananaFromButton() {
+        if (!bananas <= 0){
+            bananas--;
+        }
+        counter.innerHTML = "Bananas: " + bananas;
+        removeBananaFromHTMLBody();
+    }
+    
+    function removeBananaFromHTMLBody() {
+        bananasArr.pop();
+        bananasHTML.innerHTML = bananasArr;
+    }
+    
+</script>
+
+</body>
+</html>
+
